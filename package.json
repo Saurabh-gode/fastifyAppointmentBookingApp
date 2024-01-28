@@ -1,0 +1,29 @@
+{
+  "name": "fastifyApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.mjs",
+    "dev": "nodemon src/index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cors": "^9.0.0",
+    "@fastify/env": "^4.3.0",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/jwt": "^8.0.0",
+    "bcrypt": "^5.1.1",
+    "fastify": "^4.25.2",
+    "fastify-plugin": "^4.5.1",
+    "joi": "^17.12.0",
+    "mongoose": "^8.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
