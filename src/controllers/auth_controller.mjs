@@ -1,6 +1,6 @@
+import Joi from "joi";
 import sendResponse from "../utils/replyHandler.mjs";
 import { registerUserService, loginService } from "../services/auth_service.mjs";
-import Joi from "joi";
 
 // import
 export async function registerUser(req, reply) {

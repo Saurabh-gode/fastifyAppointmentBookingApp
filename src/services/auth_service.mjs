@@ -56,8 +56,3 @@ export async function loginService({ email, password }) {
     return { error: true, message: err.message, statusCode: 500 };
   }
 }
-
-async function generateToken(payload) {
-  try {
-  } catch (err) {}
-}

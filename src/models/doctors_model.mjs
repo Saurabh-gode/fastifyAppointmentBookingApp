@@ -9,6 +9,7 @@ const doctorSchema = new Schema({
   experience_years: { type: Number, required: true },
   role: { type: String, default: null },
   qualification: { type: String, default: "M.D." },
+  is_active: { type: Boolean, default: true },
 });
 
 const DoctorEntity = mongoose.model("doctor", doctorSchema);

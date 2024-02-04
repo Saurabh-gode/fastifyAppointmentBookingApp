@@ -4,8 +4,8 @@ import fastifyHelmet from "@fastify/helmet";
 import fastifyEnv from "@fastify/env";
 import fastifyJwt from "@fastify/jwt";
 import mongoose from "mongoose";
-import authRoutes from "./routes/auth_routes.mjs";
 import envSchema from "./config/envSchema.mjs";
+import { authRoutes, doctor_routes } from "./routes/index.mjs";
 
 const PREFIX_BASE_URL = "/api/v1";
 
@@ -33,8 +33,6 @@ fastify.decorate("authenticate", async (req, reply) => {
   // here decoded will be a different type by default but we want it to be of user-payload type
   const decoded = req.jwt.verify(authHeader);
 
-  console.log(decoded);
-
   req.user = decoded;
 });
 
@@ -43,6 +41,7 @@ fastify.get(`${PREFIX_BASE_URL}/`, (req, reply) =>
   reply.code(200).send({ message: "success", error: {}, statusCode: 200 })
 );
 fastify.register(authRoutes, { prefix: `${PREFIX_BASE_URL}/user` });
+fastify.register(doctor_routes, { prefix: `${PREFIX_BASE_URL}/doctors` });
 
 mongoose
   .connect(`mongodb://localhost:27017/app_db`)
