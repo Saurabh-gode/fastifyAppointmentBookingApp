@@ -5,7 +5,7 @@ import fastifyEnv from "@fastify/env";
 import fastifyJwt from "@fastify/jwt";
 import mongoose from "mongoose";
 import envSchema from "./config/envSchema.mjs";
-import { authRoutes, doctor_routes } from "./routes/index.mjs";
+import { authRoutes, doctor_routes, clinic_routes } from "./routes/index.mjs";
 
 const PREFIX_BASE_URL = "/api/v1";
 
@@ -42,6 +42,7 @@ fastify.get(`${PREFIX_BASE_URL}/`, (req, reply) =>
 );
 fastify.register(authRoutes, { prefix: `${PREFIX_BASE_URL}/user` });
 fastify.register(doctor_routes, { prefix: `${PREFIX_BASE_URL}/doctors` });
+fastify.register(clinic_routes, { prefix: `${PREFIX_BASE_URL}/clinics` });
 
 mongoose
   .connect(`mongodb://localhost:27017/app_db`)

@@ -7,6 +7,7 @@ const clinicSchema = new Schema({
   email: { type: String },
   contact_phone: { type: Number, max: 9999999999, min: 100000000 },
   ratings: { type: Number, default: 0.0 },
+  is_active: { type: Boolean, default: true },
 });
 
 const ClinicEntity = mongoose.model("clinic", clinicSchema);

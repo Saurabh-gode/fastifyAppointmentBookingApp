@@ -10,6 +10,9 @@ export async function registerUser(req, reply) {
         .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
         .required(),
       password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")).required(),
+      contact_phone: Joi.string()
+        .regex(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+        .required(),
       first_name: Joi.string().pattern(new RegExp("^[a-zA-Z]")).required(),
       last_name: Joi.string().pattern(new RegExp("^[a-zA-Z]")).required(),
     });
